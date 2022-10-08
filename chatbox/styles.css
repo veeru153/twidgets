@@ -1,0 +1,30 @@
+body {
+    background-color: #18181b;
+    overflow-y: scroll;
+    margin: 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.message {
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5rem 1rem;
+}
+
+.displayName {
+    font-weight: 700;
+}
+
+.text {
+    font-weight: 400;   
+    color: #EFEFF1;
+    line-height: 2rem;
+    margin: 0 0.4rem;
+}
