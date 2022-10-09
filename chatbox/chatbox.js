@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const channel = urlParams.get("channel");
+const disappear = parseInt(urlParams.get("disappear") ?? "-1");
 
 const client = tmi.Client({
     channels: [channel.toString() ?? ""]
@@ -37,6 +38,10 @@ client.on('connected', () => console.log(`[${channel.toString()}] Connected!`));
 
 client.on('chat', (channel, tags, message, self) => {
     const msg = getHTML(tags, message);
+    if(disappear != -1) {
+        setTimeout(() => msg.style.opacity = 0, disappear * 1000);
+        setTimeout(() => msg.remove(), (disappear + 1) * 1000)
+    }
     body.append(msg);
     body.scrollTop = body.scrollHeight;
     window.scrollTo(0, document.body.scrollHeight);
